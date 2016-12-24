@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Online Ludo</title>
+
+<link rel="stylesheet" href="css/style.css" />
+
+<script type="text/javascript" src="js/libs/jquery-3.1.1.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="js/setup.js"></script>
+<script type="text/javascript" src="js/Token.js"></script>
+<script type="text/javascript" src="js/board.js"></script>
+<script type="text/javascript" src="js/events.js"></script>
+</head>
+<body>
+	<div id="screenGame" class="screen-wrapper">
+		<canvas id="canvas1"></canvas>
+		<div id="controlPanel">
+			<p id="playerName"></p>
+			<button id="btnDice" disabled="disabled">Dice</button>
+			<p id="turnInfo" class="info-pane">&nbsp;</p>
+			<p id="instructions" class="info-pane">&nbsp;</p>
+		</div>
+	</div>
+	<div id="overlay"></div>
+	<form id="formName" class="screen-wrapper">
+		<input id="txtName" type="text" placeholder="Enter your name here" /><br /><br />
+		<button class="game-btn">Save</button>
+	</form>
+	<div id="screenGameSelection" class="screen-wrapper">
+		
+		<button class="game-btn btn-change-name">Change Name</button>
+		<button id="btnNewGame" class="game-btn">New Game</button>
+		<p id="messageContainer"></p>
+		<h2>Select a game to join</h2>
+		<table class="activeGamesList">
+			<thead>
+				<tr>
+					<th>Game</th>
+					<th>Players joined</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+		
+	</div>
+	<div id="screenWait" class="screen-wrapper">
+		<div>
+			<span>L</span><span>U</span><span>D</span><span>O</span>
+		</div>
+		<p id="waitMessage"></p>
+		<div>
+			<button id="btnStartGame">Start</button>
+		</div>
+		<button class="game-btn btn-change-name">Change Name</button> <button id="btnBackToGameList" class="game-btn btn-game-selection">Select another game</button>
+	</div>
+	<!-- <ul id="logsContainer"></ul> -->
+	
+	<script type="text/javascript" src="js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+* {
+	margin : 0;
+	padding : 0;
+}
+html, body {
+	height : 100%;
+}
+body {
+	font-family : arial, sans-serif;
+}
+h2 {
+ 	font : bold italic 20px comic-sans, arial, sans-serif;
+ 	text-align : center;
+ 	margin-top : 10px;
+}
+
+.page-wrapper {
+	margin : 0 auto;
+	position : relative;
+}
+
+.screen-wrapper {
+	width : 600px;
+	height : 100%;
+	position : absolute;
+	top : 0;
+	left : calc(50% - 275px);
+	display : none;
+	box-sizing : border-box;
+}
+
+input[type=text] {
+    background : #fff;
+    border : 1px solid #44f;
+    padding : 10px;
+    width : 75%;
+    font-size : 14px;
+}
+input[type=text]:focus {
+    background : #eee;
+    border : 1px solid #f4f;
+}
+
+.game-btn {
+    background : #fff;
+    border : 1px solid #44f;
+    border-radius : 5px;
+    box-shadow : rgba(255,255,255,0.4) 1px 1px 3px 3px;
+    color : #44f;
+    cursor : pointer;
+    font-size : 17px;
+    outline : 0 none;
+    font-weight : bold;
+    padding : 5px 20px;
+    display : inline-block;
+    position : absolute;
+    top : 15px;
+    
+}
+.game-btn.btn-change-name {
+    left : 15px;
+}
+.game-btn.btn-game-selection,
+#btnNewGame {
+    left : 190px;
+}
+.game-btn:hover {
+	box-shadow : inset rgba(255,255,255,0.4) 1px 1px 3px 3px;
+	font-size : 16px;
+	top : 16px;
+}
+
+#formName {
+	text-align : center;
+	padding : 200px 0 20px;
+}
+
+#formName .game-btn {
+	position : static;
+}
+#canvas1 {
+	float : left;
+	cursor : pointer;
+}
+#controlPanel {
+	margin-left : 460px;
+	text-align: center;
+}
+#playerName {
+	line-height : 30px;
+	font-size : 15px;
+	font-style: italic;
+}
+#instructions {
+	margin: 10px 2px 10px 0;
+	padding: 5px;
+	color : #fff;
+	font-size : 14px;
+	font-weight: bold;
+}
+#instructions[class*="highlight_player"] {
+	animation : HighlightPlayer1 0.5s infinite linear;
+}
+#instructions.highlight_player1 { animation-name : HighlightPlayer1; }
+#instructions.highlight_player2 { animation-name : HighlightPlayer2; }
+#instructions.highlight_player3 { animation-name : HighlightPlayer3; }
+#instructions.highlight_player4 { animation-name : HighlightPlayer4; color : #555; }
+
+#turnInfo {
+	font-weight: bold;
+}
+.info-pane {
+	margin: 10px 2px;
+	font-size : 13px;
+	line-height : 20px;
+}
+
+#btnDice {
+	border : 0 none;
+	outline : 0 none;
+	font-size : 20px;
+	font-weight : bold;
+	text-align : center;
+	width : 65px;
+	height : 59px;
+	box-sizing : border-box;
+}
+#btnDice[class*="player"] {
+	 color: #fff; 
+	 font-size: 36px;
+}
+#btnDice.active {
+	cursor : pointer;
+}
+#btnDice.player1 { background : #f44; }
+
+#btnDice.player2 { background : #4f4; }
+
+#btnDice.player3 { background : #44f; }
+
+#btnDice.player4 { background : #ff4; color: #555; }
+
+
+#screenGameSelection {
+	color : #fff;
+}
+
+#messageContainer {
+	margin : 75px auto 10px;
+	width : 70%;
+}
+
+#screenGameSelection > h2 {
+	margin-top : 10px;
+}
+.activeGamesList {
+	background : #fff;
+	color : #444;
+	width : 300px;
+	margin : 10px auto;
+	border : 1px solid #4f4;
+	border-collapse : collapse;
+	text-align : center;
+	font-size : 15px;
+}
+
+.activeGamesList thead {
+	background : #4f4;
+	color : #f44;
+}
+
+.activeGamesList th {
+	padding : 10px;
+}
+
+.activeGamesList td {
+	cursor : pointer;
+	padding : 10px;
+}
+.activeGamesList td:last-child {
+	font-weight : bold;
+}
+
+.activeGamesList tbody tr:nth-child(even) {
+	background : #dbffdb;
+	cursor : pointer;
+}
+
+#joinGame {
+	border : 0;
+	outline : 0;
+	cursor : pointer;
+	background : #4f4;
+    border-radius : 56% 38%;
+    width : 77px;
+    height : 60px;
+    font-size : 20px;
+    text-transform : uppercase;
+}
+
+#overlay,
+#screenWait {
+	width : 100%;
+	height : 100%;
+	position : absolute;
+	top : 0;
+	left : 0;
+}
+#overlay {
+	background : #777;
+	opacity : 0.8;
+}
+#screenWait {
+	color : #fff;
+	text-align : center;
+	font-size : 14px;
+	font-weight : normal;
+}
+#screenWait > p {
+	position : absolute;
+    width : 100%;
+    height : 50px;
+    top : calc(50% - 100px);
+    left : 0;
+}
+#screenWait > div {
+	position : absolute;
+    width : 120px;
+    height : 50px;
+    top : calc(50% - 25px);
+    left : calc(50% - 60px);
+}
+#screenWait span {
+	display : block;
+	font-size : 36px;
+	font-weight : bold;
+	position : absolute;
+ 	animation : UpDownAnimation 0.5s infinite linear;
+ 	text-shadow : #fff 1px 2px 1px;
+}
+
+#screenWait span:nth-child(1) {
+	left : 0px;
+	animation-delay : 0s;
+	color : #f44;
+}
+#screenWait span:nth-child(2) {
+	left : 30px;
+	animation-delay : 0.25s;
+	color : #4f4;
+}
+#screenWait span:nth-child(3) {
+	left : 60px;
+	animation-delay : 0.5s;
+	color : #ff4;
+}
+#screenWait span:nth-child(4) {
+	left : 90px;
+	animation-delay : 0.75s;
+	color : #44f;
+}
+
+#screenWait #btnStartGame {
+    position : absolute;
+    left : calc(50% - 50px);
+    top : calc(50% + 41px);
+    width : 100px;
+    height : 40px;
+    outline : 0 none;
+    font-size : 24px;
+    font-weight : bold;
+    color : #f44;
+    background : #4f4;
+    border : 0 none;
+    cursor : pointer;
+}
+
+#screenWait #btnStartGame:hover {
+ 	left : calc(50% - 49px);
+    top : calc(50% + 42px);
+    width : 98px;
+    height : 38px;
+}
+
+#logsContainer {
+	background : #333;
+	color : #fff;
+	font-size : 11px;
+    line-height : 14px;
+    height : 50px;
+    width : calc(100% - 4px);
+    padding : 2px;
+	position : fixed;
+    bottom : 0;
+    left : 0;
+    overflow : auto;
+    z-index : 1;
+}
+
+@keyframes UpDownAnimation {
+	0% {
+		top : 10px;
+	}
+	100% {
+		top : 0;
+	}
+}
+
+@keyframes HighlightPlayer1 {
+	0% { background : #fee; content : '1';}
+	25% { background : #fbb; content : '2';}
+	50% { background : #f99; content : '3';}
+	75% { background : #f66; content : '4';}
+	100% { background : #f44; content : '5';}
+}
+@keyframes HighlightPlayer2 {
+	0% { background : #efe; }
+	25% { background : #bfb; }
+	50% { background : #9f9; }
+	75% { background : #6f6; }
+	100% { background : #4f4; }
+}
+@keyframes HighlightPlayer3 {
+	0% { background : #eef; }
+	25% { background : #bbf; }
+	50% { background : #99f; }
+	75% { background : #66f; }
+	100% { background : #44f; }
+}
+@keyframes HighlightPlayer4 {
+	0% { background : #ffe; }
+	25% { background : #ffb; }
+	50% { background : #ff9; }
+	75% { background : #ff6; }
+	100% { background : #ff4; }
+}
