@@ -3,7 +3,9 @@ var path = require('path'),
 	app = express(),
 	http = require('http'),
 	server = http.Server(app),
-	io = require('socket.io')(server);
+	io = require('socket.io')(server),
+    
+    portNo = process.env.PORT || 3000;
 
 // Variables to store Application's data/states
 var sockets = {},
@@ -22,8 +24,8 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/index.html');
 });
 
-server.listen(3000, function(){
-  _log('listening on *:3000');
+server.listen(portNo, function(){
+  _log('listening on *:' + portNo);
 });
 
 function getUniqueGameID() {
