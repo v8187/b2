@@ -5,7 +5,7 @@ var path = require('path'),
 	server = http.Server(app),
 	io = require('socket.io')(server),
     
-    portNo = process.env.PORT || 3000;
+    portNo = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
 // Variables to store Application's data/states
 var sockets = {},
@@ -24,7 +24,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/index.html');
 });
 
-server.listen(portNo, function(){
+server.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP, function(){
   _log('listening on *:' + portNo);
 });
 
