@@ -23,9 +23,9 @@ app.use(express.static('public'));
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/index.html');
 });
-
+_log('process.env.OPENSHIFT_NODEJS_PORT', process.env.OPENSHIFT_NODEJS_PORT);
 server.listen(process.env.OPENSHIFT_NODEJS_PORT, process.env.OPENSHIFT_NODEJS_IP, function(){
-  _log('listening on *:' + portNo);
+  _log('listening on 555*:' + portNo);
 });
 
 function getUniqueGameID() {
